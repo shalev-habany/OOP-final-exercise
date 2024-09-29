@@ -14,7 +14,7 @@ def add_line(point1, point2, line_color, canvas):
 
 def add_rectangle(center, width, height, line_color, canvas):
     rectangle = Rectangle(center, width, height, line_color, canvas.image)
-    # canvas.add_shape(rectangle)
+    # canvas.add_shape(rectangle)1
     return rectangle
 
 
