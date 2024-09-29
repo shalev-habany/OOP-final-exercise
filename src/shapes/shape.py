@@ -8,7 +8,7 @@ class Shape(ABC):
         pass
 
     @abstractmethod
-    def rotate(self, angle: int) -> None:
+    def rotate(self, angle: float) -> None:
         pass
 
     @abstractmethod

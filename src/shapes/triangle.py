@@ -4,9 +4,10 @@ import numpy as np
 from src.shapes.point import Point
 from src.shapes.shape import Shape
 from src.shapes.line import Line
+from src.transform_shapes.transform_shapes import TransformShape
 
 
-class Triangle(Shape):
+class Triangle(Shape, TransformShape):
     def __init__(self, point1: Point, point2: Point, point3: Point, line_color, image):
         self.point1 = point1
         self.point2 = point2
@@ -29,27 +30,14 @@ class Triangle(Shape):
         self.line2.draw()
         self.line3.draw()
 
-    def rotate(self, angle: int) -> None:
-        rotation_matrix = cv2.getRotationMatrix2D((self.center.x, self.center.y), angle, 1)
-        self.apply_operation_matrix(rotation_matrix)
+    def rotate(self, angle: float) -> None:
+        super().rotate_shape(angle, self.center, [self.point1, self.point2, self.point3])
 
     def scale(self, factor: float) -> None:
-        scale_matrix = cv2.getRotationMatrix2D((self.center.x, self.center.y), 0, factor)
-        self.apply_operation_matrix(scale_matrix)
+        super().scale_shape(factor, self.center, [self.point1, self.point2, self.point3])
 
     def translate(self, x_offset: int, y_offset: int) -> None:
-        self.point1.translate(x_offset, y_offset)
-        self.point2.translate(x_offset, y_offset)
-        self.point3.translate(x_offset, y_offset)
-        self.update_center()
-
-    def apply_operation_matrix(self, matrix):
-        point1_scaled = matrix @ np.array([[self.point1.x], [self.point1.y], [1]])
-        point2_scaled = matrix @ np.array([[self.point2.x], [self.point2.y], [1]])
-        point3_scaled = matrix @ np.array([[self.point3.x], [self.point3.y], [1]])
-        self.point1.set_point(point1_scaled[0, 0], point1_scaled[1, 0])
-        self.point2.set_point(point2_scaled[0, 0], point2_scaled[1, 0])
-        self.point3.set_point(point3_scaled[0, 0], point3_scaled[1, 0])
+        super().translate_shape(x_offset, y_offset, [self.point1, self.point2, self.point3])
 
     def update_center(self):
         self.center.set_point((self.point1.x + self.point2.x + self.point3.x) / 3,
