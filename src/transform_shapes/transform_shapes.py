@@ -12,7 +12,7 @@ class TransformShape(ABC):
             scaled_point = matrix @ np.array([[point.x], [point.y], [1]])
             point.set_point(scaled_point[0, 0], scaled_point[1, 0])
 
-    def translate_shape(self, x_offset: int, y_offset: int, points: list[Point]) -> None:
+    def translate_shape(self, x_offset: float, y_offset: float, points: list[Point]) -> None:
         for point in points:
             point.translate(x_offset, y_offset)
         self.update_center()

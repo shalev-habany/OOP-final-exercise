@@ -36,7 +36,7 @@ class Triangle(Shape, TransformShape):
     def scale(self, factor: float) -> None:
         super().scale_shape(factor, self.center, [self.point1, self.point2, self.point3])
 
-    def translate(self, x_offset: int, y_offset: int) -> None:
+    def translate(self, x_offset: float, y_offset: float) -> None:
         super().translate_shape(x_offset, y_offset, [self.point1, self.point2, self.point3])
 
     def update_center(self):

@@ -25,7 +25,7 @@ class Line(Shape, TransformShape):
     def rotate(self, angle: float) -> None:
         super().rotate_shape(angle, self.center, [self.point1, self.point2])
 
-    def translate(self, x_offset: int, y_offset: int) -> None:
+    def translate(self, x_offset: float, y_offset: float) -> None:
         super().translate_shape(x_offset, y_offset, [self.point1, self.point2])
 
     def scale(self, factor: float) -> None:

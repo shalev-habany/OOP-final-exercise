@@ -34,7 +34,7 @@ class Rectangle(Shape, TransformShape):
         left_line = Line(self.bottom_left, self.top_left, self.line_color, self.image)
         return top_line, right_line, bottom_line, left_line
 
-    def translate(self, x_offset: int, y_offset: int) -> None:
+    def translate(self, x_offset: float, y_offset: float) -> None:
         super().translate_shape(x_offset, y_offset, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
 
     def rotate(self, angle: float) -> None:

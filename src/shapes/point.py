@@ -1,10 +1,12 @@
+from numpy import ndarray
+
 from src.shapes.shape import Shape
 import cv2
 
 
 class Point(Shape):
 
-    def __init__(self, x: float, y: float, line_color, image):
+    def __init__(self, x: float, y: float, line_color: tuple[float, float, float], image: ndarray):
         self.x = x
         self.y = y
         self.line_color = line_color
