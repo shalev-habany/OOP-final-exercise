@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from typing import List
 from src.shapes.shape import Shape
 
 

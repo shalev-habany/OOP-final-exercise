@@ -23,3 +23,6 @@ class Circle(Shape):
 
     def scale(self, factor: float) -> None:
         self.radius *= factor
+
+    def get_center(self):
+        return self.center

@@ -34,3 +34,9 @@ class Line(Shape, TransformShape):
     def update_center(self) -> None:
         self.center.set_point((self.point1.x + self.point2.x) / 2,
                               (self.point1.y + self.point2.y) / 2)
+
+    def get_points_list(self) -> list[Point]:
+        return [self.point1, self.point2]
+
+    def get_center(self):
+        return self.center

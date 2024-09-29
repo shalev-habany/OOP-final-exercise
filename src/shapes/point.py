@@ -28,3 +28,9 @@ class Point(Shape):
     def set_point(self, x, y) -> None:
         self.x = x
         self.y = y
+
+    def get_points_list(self):
+        return [self]
+
+    def get_center(self):
+        return self

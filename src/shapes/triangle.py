@@ -42,3 +42,9 @@ class Triangle(Shape, TransformShape):
     def update_center(self):
         self.center.set_point((self.point1.x + self.point2.x + self.point3.x) / 3,
                               (self.point1.y + self.point2.y + self.point3.y) / 3)
+
+    def get_points_list(self) -> list[Point]:
+        return [self.point1, self.point2, self.point3]
+
+    def get_center(self):
+        return self.center
