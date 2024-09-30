@@ -6,7 +6,7 @@ from src.shapes.shape import Shape
 
 
 class Circle(Shape):
-    def __init__(self, radius, center: Point, line_color: tuple[int, int, int], image: ndarray):
+    def __init__(self, radius: float, center: Point, line_color: tuple[float, float, float], image: ndarray):
         self.center = center
         self.radius = radius
         self.line_color = line_color

@@ -9,7 +9,7 @@ from src.transform_shapes.transform_shapes import TransformShape
 
 
 class Rectangle(Shape, TransformShape):
-    def __init__(self, center: Point, width: float, height: float, line_color: tuple[int, int, int], image: ndarray):
+    def __init__(self, center: Point, width: float, height: float, line_color: tuple[float, float, float], image: ndarray):
         self.width = width
         self.height = height
         self.center = center
