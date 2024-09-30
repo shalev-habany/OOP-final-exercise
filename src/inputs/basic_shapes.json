@@ -1,0 +1,36 @@
+{
+    "shapes": [
+        {
+            "id": "0",
+            "type": "point",
+            "shape_props": {
+                "x": 400,
+                "y": 400
+            },
+            "line_color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "id": "1",
+            "type": "line",
+            "shape_props": {
+                "point1": {
+                    "x": 0,
+                    "y": 0
+                },
+                "point2": {
+                    "x": 100,
+                    "y": 100
+                }
+            },
+            "line_color": [
+                0,
+                255,
+                0
+            ]
+        }
+    ]
+}
