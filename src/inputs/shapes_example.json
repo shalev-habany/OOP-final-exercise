@@ -1,0 +1,84 @@
+{
+    "shapes": [
+        {
+            "id": "1",
+            "type": "line",
+            "shape_props": {
+                "point1": {
+                    "x": 0,
+                    "y": 0
+                },
+                "point2": {
+                    "x": 100,
+                    "y": 100
+                }
+            },
+            "line_color": [
+                0,
+                255,
+                0
+            ]
+        }
+    ],
+    "composite_shapes": [
+        {
+            "id": 3,
+            "type": "house",
+            "shapes": [
+                {
+                    "id": 4,
+                    "type": "rectangle",
+                    "shape_props": {
+                        "center": {
+                            "x": 400,
+                            "y": 400
+                        },
+                        "width": 200,
+                        "height": 200
+                    }
+                },
+                {
+                    "id": 5,
+                    "type": "triangle",
+                    "shape_props": {
+                        "point1": {
+                            "x": 300,
+                            "y": 300
+                        },
+                        "point2": {
+                            "x": 500,
+                            "y": 300
+                        },
+                        "point3": {
+                            "x": 400,
+                            "y": 200
+                        }
+                    }
+                }
+            ],
+            "line_color": [
+                0,
+                255,
+                0
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "shape_id": 3,
+            "type": "rotate",
+            "angle": 45
+        },
+        {
+            "shape_id": 3,
+            "type": "translate",
+            "x_offset": 100,
+            "y_offset": 100
+        },
+        {
+            "shape_id": 3,
+            "type": "scale",
+            "factor": 0.5
+        }
+    ]
+}

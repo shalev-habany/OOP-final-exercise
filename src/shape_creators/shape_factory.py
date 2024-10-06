@@ -24,7 +24,7 @@ class ShapeFactory:
         elif shape_type == 'point':
             return self.create_point(line_color, shape_props)
         else:
-            return self.create_complex_shape(line_color, shape_props)
+            return self.create_composite_shape(line_color, shape_props)
 
     def create_point(self, line_color: tuple[float, float, float], shape_props: dict) -> Shape:
         return Point(shape_props['x'], shape_props['y'], line_color, self.image)
@@ -49,7 +49,7 @@ class ShapeFactory:
         return Line(shape_props['point1'], shape_props['point2'], line_color, self.image)
 
 
-    def create_complex_shape(self, line_color: tuple[float, float, float], shapes: dict) -> Shape:
+    def create_composite_shape(self, line_color: tuple[float, float, float], shapes: dict) -> Shape:
         shapes_instances = []
         for shape in shapes['shapes']:
             shapes_instances.append(self.create_shape(shape['type'], line_color, shape['shape_props']))
