@@ -22,11 +22,12 @@ class Rectangle(Shape, TransformShape):
         self.bottom_right = Point(center.x + width / 2, center.y + height / 2, line_color, image)
         self.top_line, self.right_line, self.bottom_line, self.left_line = self.create_lines_from_points()
 
-    def draw(self) -> None:
-        self.top_line.draw()
-        self.right_line.draw()
-        self.bottom_line.draw()
-        self.left_line.draw()
+    def draw(self, image: ndarray) -> ndarray:
+        self.top_line.draw(image)
+        self.right_line.draw(image)
+        self.bottom_line.draw(image)
+        self.left_line.draw(image)
+        return image
 
     def create_lines_from_points(self) -> tuple[Line, Line, Line, Line]:
         top_line = Line(self.top_left, self.top_right, self.line_color, self.image)

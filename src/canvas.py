@@ -13,7 +13,7 @@ class Canvas:
 
     def draw(self) -> np.ndarray:
         for shape in self.shapes:
-            shape.draw()
+            shape.draw(self.image)
         return self.image
 
     def display(self) -> None:

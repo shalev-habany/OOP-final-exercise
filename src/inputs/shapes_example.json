@@ -1,84 +1,108 @@
 {
-    "shapes": [
+  "shapes": [
+    {
+      "id": "1",
+      "type": "line",
+      "shape_props": {
+        "point1": {
+          "x": 0,
+          "y": 0
+        },
+        "point2": {
+          "x": 100,
+          "y": 100
+        }
+      },
+      "line_color": [
+        0,
+        255,
+        0
+      ]
+    }
+  ],
+  "composite_shapes": [
+    {
+      "id": "6",
+      "type": "house",
+      "shapes": [
         {
-            "id": "1",
-            "type": "line",
-            "shape_props": {
-                "point1": {
-                    "x": 0,
-                    "y": 0
-                },
-                "point2": {
-                    "x": 100,
-                    "y": 100
-                }
+          "id": "7",
+          "type": "rectangle",
+          "shape_props": {
+            "center": {
+              "x": 400,
+              "y": 400
             },
-            "line_color": [
-                0,
-                255,
-                0
-            ]
-        }
-    ],
-    "composite_shapes": [
-        {
-            "id": 3,
-            "type": "house",
-            "shapes": [
-                {
-                    "id": 4,
-                    "type": "rectangle",
-                    "shape_props": {
-                        "center": {
-                            "x": 400,
-                            "y": 400
-                        },
-                        "width": 200,
-                        "height": 200
-                    }
-                },
-                {
-                    "id": 5,
-                    "type": "triangle",
-                    "shape_props": {
-                        "point1": {
-                            "x": 300,
-                            "y": 300
-                        },
-                        "point2": {
-                            "x": 500,
-                            "y": 300
-                        },
-                        "point3": {
-                            "x": 400,
-                            "y": 200
-                        }
-                    }
-                }
-            ],
-            "line_color": [
-                0,
-                255,
-                0
-            ]
-        }
-    ],
-    "actions": [
-        {
-            "shape_id": 3,
-            "type": "rotate",
-            "angle": 45
+            "width": 100,
+            "height": 100
+          }
         },
         {
-            "shape_id": 3,
-            "type": "translate",
-            "x_offset": 100,
-            "y_offset": 100
+          "id": "8",
+          "type": "triangle",
+          "shape_props": {
+            "point1": {
+              "x": 350,
+              "y": 350
+            },
+            "point2": {
+              "x": 450,
+              "y": 350
+            },
+            "point3": {
+              "x": 400,
+              "y": 250
+            }
+          }
+        }
+      ],
+      "line_color": [
+        0,
+        255,
+        0
+      ]
+    },
+    {
+      "type": "street",
+      "id": "12",
+      "shapes": [
+        {
+          "id": "9",
+          "type": "house"
         },
         {
-            "shape_id": 3,
-            "type": "scale",
-            "factor": 0.5
+          "id": "10",
+          "type": "house"
+        },
+        {
+          "id": "11",
+          "type": "house"
         }
-    ]
+      ],
+      "line_color": [
+        0,
+        255,
+        0
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "shape_id": "10",
+      "type": "translate",
+      "x_offset": 100,
+      "y_offset": 0
+    },
+    {
+      "shape_id": "11",
+      "type": "translate",
+      "x_offset": 200,
+      "y_offset": 0
+    },
+    {
+      "shape_id": "12",
+      "type": "rotate",
+      "angle": 90
+    }
+  ]
 }

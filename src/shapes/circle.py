@@ -12,8 +12,9 @@ class Circle(Shape):
         self.line_color = line_color
         self.image = image
 
-    def draw(self) -> None:
-        cv2.circle(self.image, (int(self.center.x), int(self.center.y)), int(self.radius), self.line_color)
+    def draw(self, image: ndarray) -> ndarray:
+        cv2.circle(image, (int(self.center.x), int(self.center.y)), int(self.radius), self.line_color)
+        return image
 
     def translate(self, x_offset: float, y_offset: float) -> None:
         self.center.translate(x_offset, y_offset)

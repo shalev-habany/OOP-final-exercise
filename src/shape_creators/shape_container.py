@@ -2,10 +2,11 @@ from src.shapes.shape import Shape
 
 
 class ShapeContainer:
-    def __init__(self, shape_id: str, shape: Shape, actions: list[dict]):
+    def __init__(self, shape_id: str, shape: Shape, actions: list[dict], type: str):
         self.id = shape_id
         self.shape = shape
         self.actions = actions
+        self.type = type
 
     def get_shape(self) -> Shape:
         return self.shape
@@ -20,7 +21,7 @@ class ShapeContainer:
                 self.shape.translate(action['x_offset'], action['y_offset'])
 
     @staticmethod
-    def create_final_shape_for_canvas(shape_id: str, shape: Shape, actions: list[dict]) -> 'ShapeContainer':
-        shape_container = ShapeContainer(shape_id, shape, actions)
+    def create_final_shape_for_canvas(shape_id: str, shape: Shape, actions: list[dict], type: str) -> 'ShapeContainer':
+        shape_container = ShapeContainer(shape_id, shape, actions, type)
         shape_container.apply_actions()
         return shape_container

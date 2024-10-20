@@ -18,9 +18,10 @@ class Line(Shape, TransformShape):
         center_y = (self.point1.y + self.point2.y) / 2
         self.center = Point(center_x, center_y, line_color, image)
 
-    def draw(self) -> None:
-        cv2.line(self.image, (int(self.point1.x), int(self.point1.y)), (int(self.point2.x), int(self.point2.y)),
+    def draw(self, image: ndarray) -> ndarray:
+        cv2.line(image, (int(self.point1.x), int(self.point1.y)), (int(self.point2.x), int(self.point2.y)),
                  self.line_color, 1)
+        return image
 
     def rotate(self, angle: float) -> None:
         super().rotate_shape(angle, self.center, [self.point1, self.point2])

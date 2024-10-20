@@ -20,7 +20,9 @@ COMPOSITE_SHAPES_SCHEMA = {
         'properties': {
             'id': {'type': 'string'},
             'type': {'type': 'string'},
-            'shapes': SHAPES_SCHEMA,
+            'shapes': {
+                'type': 'array'
+            },
             'line_color': {'type': 'array', 'items': {'type': 'number'}}
         }
     }
@@ -41,4 +43,8 @@ ACTIONS_SCHEMA = {
             'y_offset': {'type': 'number'}
         }
     }
+}
+
+DEFINITIONS = {
+    'compositeShape': COMPOSITE_SHAPES_SCHEMA['items']
 }

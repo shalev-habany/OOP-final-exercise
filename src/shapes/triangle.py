@@ -27,10 +27,11 @@ class Triangle(Shape, TransformShape):
         line3 = Line(self.point3, self.point1, self.line_color, self.image)
         return line1, line2, line3
 
-    def draw(self) -> None:
-        self.line1.draw()
-        self.line2.draw()
-        self.line3.draw()
+    def draw(self, image: ndarray) -> ndarray:
+        self.line1.draw(image)
+        self.line2.draw(image)
+        self.line3.draw(image)
+        return image
 
     def rotate(self, angle: float) -> None:
         super().rotate_shape(angle, self.center, [self.point1, self.point2, self.point3])

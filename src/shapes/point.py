@@ -12,8 +12,9 @@ class Point(Shape):
         self.line_color = line_color
         self.image = image
 
-    def draw(self) -> None:
-        cv2.circle(self.image, (int(self.x), int(self.y)), 1, self.line_color, -1)
+    def draw(self, image: ndarray) -> ndarray:
+        cv2.circle(image, (int(self.x), int(self.y)), 1, self.line_color, -1)
+        return image
 
     def rotate(self, angle: float) -> None:
         pass

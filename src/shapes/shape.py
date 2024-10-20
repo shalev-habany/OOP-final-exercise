@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 
-from src.shapes.point import Point
+from numpy import ndarray
 
 
 class Shape(ABC):
 
     @abstractmethod
-    def draw(self) -> None:
+    def draw(self, image: ndarray) -> ndarray:
         pass
 
     @abstractmethod
@@ -21,8 +21,10 @@ class Shape(ABC):
     def scale(self, factor: float) -> None:
         pass
 
-    def get_points_list(self) -> list[Point]:
+    @abstractmethod
+    def get_points_list(self):
         pass
 
-    def get_center(self) -> Point:
+    @abstractmethod
+    def get_center(self):
         pass
