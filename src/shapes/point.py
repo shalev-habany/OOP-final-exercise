@@ -15,22 +15,22 @@ class Point(Shape):
     def draw(self) -> None:
         cv2.circle(self.image, (int(self.x), int(self.y)), 1, self.line_color, -1)
 
-    def rotate(self, angle) -> None:
+    def rotate(self, angle: float) -> None:
         pass
 
-    def translate(self, x_offset, y_offset) -> None:
+    def translate(self, x_offset: float, y_offset: float) -> None:
         self.x += x_offset
         self.y += y_offset
 
-    def scale(self, factor) -> None:
+    def scale(self, factor: float) -> None:
         pass
 
-    def set_point(self, x, y) -> None:
+    def set_point(self, x: float, y: float) -> None:
         self.x = x
         self.y = y
 
-    def get_points_list(self):
+    def get_points_list(self) -> list['Point']:
         return [self]
 
-    def get_center(self):
+    def get_center(self) -> 'Point':
         return self

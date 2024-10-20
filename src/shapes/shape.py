@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from src.shapes.point import Point
+
 
 class Shape(ABC):
 
@@ -19,8 +21,8 @@ class Shape(ABC):
     def scale(self, factor: float) -> None:
         pass
 
-    def get_points_list(self):
+    def get_points_list(self) -> list[Point]:
         pass
 
-    def get_center(self):
+    def get_center(self) -> Point:
         pass

@@ -28,7 +28,7 @@ class Rectangle(Shape, TransformShape):
         self.bottom_line.draw()
         self.left_line.draw()
 
-    def create_lines_from_points(self):
+    def create_lines_from_points(self) -> tuple[Line, Line, Line, Line]:
         top_line = Line(self.top_left, self.top_right, self.line_color, self.image)
         right_line = Line(self.top_right, self.bottom_right, self.line_color, self.image)
         bottom_line = Line(self.bottom_right, self.bottom_left, self.line_color, self.image)

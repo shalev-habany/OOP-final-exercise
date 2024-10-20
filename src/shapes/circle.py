@@ -24,5 +24,5 @@ class Circle(Shape):
     def scale(self, factor: float) -> None:
         self.radius *= factor
 
-    def get_center(self):
+    def get_center(self) -> Point:
         return self.center

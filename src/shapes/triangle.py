@@ -48,5 +48,5 @@ class Triangle(Shape, TransformShape):
     def get_points_list(self) -> list[Point]:
         return [self.point1, self.point2, self.point3]
 
-    def get_center(self):
+    def get_center(self) -> Point:
         return self.center
