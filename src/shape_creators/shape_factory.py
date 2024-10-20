@@ -48,7 +48,6 @@ class ShapeFactory:
         shape_props['point2'] = Point(shape_props['point2']['x'], shape_props['point2']['y'], line_color, self.image)
         return Line(shape_props['point1'], shape_props['point2'], line_color, self.image)
 
-
     def create_composite_shape(self, line_color: tuple[float, float, float], shapes: dict) -> Shape:
         shapes_instances = []
         for shape in shapes['shapes']:

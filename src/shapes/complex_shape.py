@@ -35,7 +35,7 @@ class ComplexShape(Shape, TransformShape):
     def scale(self, factor: float) -> None:
         super().scale_shape(factor, self.center, self.points_list)
 
-    def draw(self):
+    def draw(self) -> None:
         for shape in self.shapes:
             shape.draw()
 
@@ -48,5 +48,5 @@ class ComplexShape(Shape, TransformShape):
             y += center.y
         return Point(x / len(self.shapes), y / len(self.shapes), self.line_color, self.image)
 
-    def update_center(self):
+    def update_center(self) -> None:
         self.center = self.get_center()

@@ -9,7 +9,8 @@ from src.transform_shapes.transform_shapes import TransformShape
 
 
 class Rectangle(Shape, TransformShape):
-    def __init__(self, center: Point, width: float, height: float, line_color: tuple[float, float, float], image: ndarray):
+    def __init__(self, center: Point, width: float, height: float, line_color: tuple[float, float, float],
+                 image: ndarray):
         self.width = width
         self.height = height
         self.center = center
@@ -35,7 +36,8 @@ class Rectangle(Shape, TransformShape):
         return top_line, right_line, bottom_line, left_line
 
     def translate(self, x_offset: float, y_offset: float) -> None:
-        super().translate_shape(x_offset, y_offset, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
+        super().translate_shape(x_offset, y_offset,
+                                [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
 
     def rotate(self, angle: float) -> None:
         super().rotate_shape(angle, self.center, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])

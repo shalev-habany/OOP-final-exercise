@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from numpy import ndarray
 
 from src.shapes.point import Point
 from src.shapes.shape import Shape
@@ -8,7 +9,8 @@ from src.transform_shapes.transform_shapes import TransformShape
 
 
 class Triangle(Shape, TransformShape):
-    def __init__(self, point1: Point, point2: Point, point3: Point, line_color, image):
+    def __init__(self, point1: Point, point2: Point, point3: Point, line_color: tuple[float, float, float],
+                 image: ndarray):
         self.point1 = point1
         self.point2 = point2
         self.point3 = point3
@@ -19,7 +21,7 @@ class Triangle(Shape, TransformShape):
         self.center = Point(center_x, center_y, line_color, image)
         self.line1, self.line2, self.line3 = self.create_lines_from_points()
 
-    def create_lines_from_points(self):
+    def create_lines_from_points(self) -> tuple[Line, Line, Line]:
         line1 = Line(self.point1, self.point2, self.line_color, self.image)
         line2 = Line(self.point2, self.point3, self.line_color, self.image)
         line3 = Line(self.point3, self.point1, self.line_color, self.image)

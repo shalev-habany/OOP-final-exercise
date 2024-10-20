@@ -17,9 +17,12 @@ if __name__ == '__main__':
         shape_container = ShapeContainer.create_final_shape_for_canvas(shape['id'], shape_instance, shape_actions)
         canvas.add_shape(shape_container.get_shape())
     for composite_shape in composite_shapes:
-        composite_shape_instance = shape_factory.create_shape(composite_shape['type'], composite_shape['line_color'], composite_shape)
+        composite_shape_instance = shape_factory.create_shape(composite_shape['type'], composite_shape['line_color'],
+                                                              composite_shape)
         composite_shape_actions = json_handler.get_actions_by_shape_id(composite_shape['id'])
-        composite_shape_container = ShapeContainer.create_final_shape_for_canvas(composite_shape['id'], composite_shape_instance, composite_shape_actions)
+        composite_shape_container = ShapeContainer.create_final_shape_for_canvas(composite_shape['id'],
+                                                                                 composite_shape_instance,
+                                                                                 composite_shape_actions)
         canvas.add_shape(composite_shape_container.get_shape())
     canvas.draw()
     canvas.display()
