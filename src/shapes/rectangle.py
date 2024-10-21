@@ -82,6 +82,7 @@ class Rectangle(Shape, TransformShape):
         :param factor: The factor to scale the rectangle by.
         """
         super().scale_shape(factor, self.center, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
+        self.update_height_and_width()
 
     def update_center(self) -> None:
         """
@@ -89,6 +90,13 @@ class Rectangle(Shape, TransformShape):
         """
         self.center.set_point((self.top_left.x + self.top_right.x) / 2,
                               (self.top_left.y + self.bottom_left.y) / 2)
+
+    def update_height_and_width(self) -> None:
+        """
+        Update the height and width of the rectangle.
+        """
+        self.width = self.top_right.x - self.top_left.x
+        self.height = self.bottom_left.y - self.top_left.y
 
     def get_points_list(self) -> list[Point]:
         """

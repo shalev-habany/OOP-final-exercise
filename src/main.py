@@ -1,9 +1,7 @@
 from src.canvas import Canvas
 from src.json_parser.json_handler import JsonHandler
-from src.shape_creators.shape_container import ShapeContainer
 from src.shape_creators.shape_creator import ShapeCreator
 from src.shape_creators.shape_factory import ShapeFactory
-from src.shapes.shape import Shape
 
 if __name__ == '__main__':
     canvas = Canvas(800, 800)
