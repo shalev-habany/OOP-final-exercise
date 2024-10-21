@@ -24,6 +24,7 @@
     {
       "id": "6",
       "type": "house",
+      "draw": false,
       "shapes": [
         {
           "id": "7",
@@ -79,6 +80,7 @@
           "type": "house"
         }
       ],
+      "draw": true,
       "line_color": [
         0,
         255,

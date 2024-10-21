@@ -11,7 +11,7 @@ if __name__ == '__main__':
     json_handler = JsonHandler(json_path)
     shapes = json_handler.get_shapes()
     composite_shapes = json_handler.get_composite_shapes()
-    shape_factory = ShapeFactory(canvas.image)
+    shape_factory = ShapeFactory()
     shape_creator = ShapeCreator(canvas, shape_factory, json_handler.get_actions())
     shape_creator.create_shapes(shapes)
     shape_creator.create_composite_shapes(composite_shapes)
