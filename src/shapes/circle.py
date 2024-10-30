@@ -1,3 +1,5 @@
+from typing import Tuple
+
 import cv2
 from numpy import ndarray
 
@@ -10,7 +12,7 @@ class Circle(Shape):
     A class representing a circle shape.
     """
 
-    def __init__(self, radius: float, center: Point, line_color: tuple[float, float, float]):
+    def __init__(self, radius: float, center: Point, line_color: Tuple[float, float, float]):
         """
         Initialize a Circle instance.
 

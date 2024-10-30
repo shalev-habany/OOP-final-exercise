@@ -1,3 +1,5 @@
+from typing import List, Tuple
+
 from numpy import ndarray
 
 from src.shapes.point import Point
@@ -10,7 +12,7 @@ class CompositeShape(Shape, TransformShape):
     A class representing a composite shape, which is a collection of multiple shapes.
     """
 
-    def __init__(self, shapes: list, line_color: tuple[float, float, float]):
+    def __init__(self, shapes: List, line_color: Tuple[float, float, float]):
         """
         Initialize a CompositeShape instance.
 
@@ -36,7 +38,7 @@ class CompositeShape(Shape, TransformShape):
         for shape in composite_shape.shapes:
             self.set_shapes_points_list(shape)
 
-    def get_points_list(self) -> list[Point]:
+    def get_points_list(self) -> List[Point]:
         """
         Get a list of points defining the composite shape.
 

@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from src.shapes.shape import Shape
 
+NUM_OF_CHANNELS = 3
 
 class Canvas:
     """
@@ -17,7 +18,7 @@ class Canvas:
         """
         self.width = width
         self.height = height
-        self.channels = 3
+        self.channels = NUM_OF_CHANNELS
         self.image = np.zeros((self.height, self.width, self.channels), dtype="uint8")
         self.shapes = []
 

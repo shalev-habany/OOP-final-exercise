@@ -1,4 +1,5 @@
 from copy import deepcopy
+from typing import List, Dict
 
 from src.canvas import Canvas
 from src.shape_creators.shape_container import ShapeContainer
@@ -11,7 +12,7 @@ class ShapeCreator:
     A class responsible for creating shapes and composite shapes on a canvas.
     """
 
-    def __init__(self, canvas: Canvas, shape_factory: ShapeFactory, actions: list):
+    def __init__(self, canvas: Canvas, shape_factory: ShapeFactory, actions: List):
         """
         Initialize the ShapeCreator with a canvas, shape factory, and a list of actions.
 
@@ -22,7 +23,7 @@ class ShapeCreator:
         self.canvas = canvas
         self.shape_factory = shape_factory
         self.actions = actions
-        self.created_shapes: list[ShapeContainer] = []
+        self.created_shapes: List[ShapeContainer] = []
 
     def get_actions_by_shape_id(self, shape_id: str):
         """
@@ -37,7 +38,7 @@ class ShapeCreator:
                 shape_actions.append(action)
         return shape_actions
 
-    def create_shapes(self, shapes: list):
+    def create_shapes(self, shapes: List):
         """
         Create and add shapes to the canvas.
 
@@ -51,7 +52,7 @@ class ShapeCreator:
             self.canvas.add_shape(shape_container.get_shape())
             self.created_shapes.append(shape_container)
 
-    def create_composite_shape(self, composite_shape: dict):
+    def create_composite_shape(self, composite_shape: Dict):
         """
         Create and add a composite shape to the canvas.
 
@@ -69,7 +70,7 @@ class ShapeCreator:
         if composite_shape['draw']:
             self.canvas.add_shape(composite_shape_container.get_shape())
 
-    def create_nested_composite_shape(self, composite_shape: dict):
+    def create_nested_composite_shape(self, composite_shape: Dict):
         """
         Create and add a nested composite shape to the canvas.
 
@@ -97,7 +98,7 @@ class ShapeCreator:
         if composite_shape['draw']:
             self.canvas.add_shape(composite_shape_container.get_shape())
 
-    def create_composite_shapes(self, composite_shapes: list):
+    def create_composite_shapes(self, composite_shapes: List):
         """
         Create and add multiple composite shapes to the canvas.
 

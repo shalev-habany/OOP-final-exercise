@@ -1,3 +1,5 @@
+from typing import List, Tuple
+
 from numpy import ndarray
 
 from src.shapes.shape import Shape
@@ -9,7 +11,7 @@ class Point(Shape):
     A class representing a point shape.
     """
 
-    def __init__(self, x: float, y: float, line_color: tuple[float, float, float]):
+    def __init__(self, x: float, y: float, line_color: Tuple[float, float, float]):
         """
         Initialize a Point instance.
 
@@ -67,7 +69,7 @@ class Point(Shape):
         self.x = x
         self.y = y
 
-    def get_points_list(self) -> list['Point']:
+    def get_points_list(self) -> List['Point']:
         """
         Get a list of points defining the point.
 

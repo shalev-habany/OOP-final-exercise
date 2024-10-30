@@ -4,6 +4,7 @@ from src.canvas import Canvas
 from src.shapes.circle import Circle
 from src.shapes.point import Point
 
+
 class CirclesTest(unittest.TestCase):
     def setUp(self):
         self.center = Point(5.0, 5.0, (0, 255, 0))
@@ -23,6 +24,3 @@ class CirclesTest(unittest.TestCase):
     def test_circle_scale(self):
         self.circle.scale(2.0)
         self.assertEqual(self.circle.radius, 6.0)
-
-if __name__ == '__main__':
-    unittest.main()

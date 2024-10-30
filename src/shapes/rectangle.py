@@ -1,3 +1,5 @@
+from typing import List, Tuple
+
 import cv2
 import numpy as np
 from numpy import ndarray
@@ -13,7 +15,7 @@ class Rectangle(Shape, TransformShape):
     A class representing a rectangle shape.
     """
 
-    def __init__(self, center: Point, width: float, height: float, line_color: tuple[float, float, float]):
+    def __init__(self, center: Point, width: float, height: float, line_color: Tuple[float, float, float]):
         """
         Initialize a Rectangle instance.
 
@@ -98,7 +100,7 @@ class Rectangle(Shape, TransformShape):
         self.width = self.top_right.x - self.top_left.x
         self.height = self.bottom_left.y - self.top_left.y
 
-    def get_points_list(self) -> list[Point]:
+    def get_points_list(self) -> List[Point]:
         """
         Get a list of points defining the rectangle.
 

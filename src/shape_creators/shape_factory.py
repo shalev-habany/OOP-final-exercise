@@ -1,3 +1,5 @@
+from typing import Dict, Tuple
+
 from src.shapes.circle import Circle
 from src.shapes.composite_shape import CompositeShape
 from src.shapes.line import Line
@@ -12,7 +14,7 @@ class ShapeFactory:
         A factory class for creating various shapes.
     """
     
-    def create_shape(self, shape_type: str, line_color: tuple[float, float, float], shape_props: dict) -> Shape:
+    def create_shape(self, shape_type: str, line_color: Tuple[float, float, float], shape_props: Dict) -> Shape:
         """
         Create a shape based on the specified type.
 
@@ -34,7 +36,7 @@ class ShapeFactory:
         else:
             return self.create_composite_shape(line_color, shape_props)
 
-    def create_point(self, line_color: tuple[float, float, float], shape_props: dict) -> Shape:
+    def create_point(self, line_color: Tuple[float, float, float], shape_props: Dict) -> Shape:
         """
         Create a point shape.
 
@@ -44,7 +46,7 @@ class ShapeFactory:
         """
         return Point(shape_props['x'], shape_props['y'], line_color)
 
-    def create_circle(self, line_color: tuple[float, float, float], shape_props: dict) -> Shape:
+    def create_circle(self, line_color: Tuple[float, float, float], shape_props: Dict) -> Shape:
         """
         Create a circle shape.
 
@@ -55,7 +57,7 @@ class ShapeFactory:
         shape_props['center'] = Point(shape_props['center']['x'], shape_props['center']['y'], line_color)
         return Circle(shape_props['radius'], shape_props['center'], line_color)
 
-    def create_rectangle(self, line_color: tuple[float, float, float], shape_props: dict) -> Shape:
+    def create_rectangle(self, line_color: Tuple[float, float, float], shape_props: Dict) -> Shape:
         """
         Create a rectangle shape.
 
@@ -66,7 +68,7 @@ class ShapeFactory:
         shape_props['center'] = Point(shape_props['center']['x'], shape_props['center']['y'], line_color)
         return Rectangle(shape_props['center'], shape_props['width'], shape_props['height'], line_color)
 
-    def create_triangle(self, line_color: tuple[float, float, float], shape_props: dict) -> Shape:
+    def create_triangle(self, line_color: Tuple[float, float, float], shape_props: Dict) -> Shape:
         """
         Create a triangle shape.
 
@@ -79,7 +81,7 @@ class ShapeFactory:
         shape_props['point3'] = Point(shape_props['point3']['x'], shape_props['point3']['y'], line_color)
         return Triangle(shape_props['point1'], shape_props['point2'], shape_props['point3'], line_color)
 
-    def create_line(self, line_color: tuple[float, float, float], shape_props: dict) -> Shape:
+    def create_line(self, line_color: Tuple[float, float, float], shape_props: Dict) -> Shape:
         """
         Create a line shape.
 
@@ -91,7 +93,7 @@ class ShapeFactory:
         shape_props['point2'] = Point(shape_props['point2']['x'], shape_props['point2']['y'], line_color)
         return Line(shape_props['point1'], shape_props['point2'], line_color)
 
-    def create_composite_shape(self, line_color: tuple[float, float, float], shapes: dict) -> Shape:
+    def create_composite_shape(self, line_color: Tuple[float, float, float], shapes: Dict) -> Shape:
         """
         Create a composite shape.
 

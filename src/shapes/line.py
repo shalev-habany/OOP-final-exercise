@@ -1,3 +1,5 @@
+from typing import Tuple
+
 import cv2
 import numpy as np
 from numpy import ndarray
@@ -12,7 +14,7 @@ class Line(Shape, TransformShape):
     A class representing a line shape.
     """
 
-    def __init__(self, point1: Point, point2: Point, line_color: tuple[float, float, float]):
+    def __init__(self, point1: Point, point2: Point, line_color: Tuple[float, float, float]):
         """
         Initialize a Line instance.
 

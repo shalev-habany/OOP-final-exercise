@@ -1,3 +1,5 @@
+from typing import Tuple, List
+
 import cv2
 import numpy as np
 from numpy import ndarray
@@ -13,7 +15,7 @@ class Triangle(Shape, TransformShape):
     A class representing a triangle shape.
     """
 
-    def __init__(self, point1: Point, point2: Point, point3: Point, line_color: tuple[float, float, float]):
+    def __init__(self, point1: Point, point2: Point, point3: Point, line_color: Tuple[float, float, float]):
         """
         Initialize a Triangle instance.
 
@@ -29,9 +31,9 @@ class Triangle(Shape, TransformShape):
         center_x = (self.point1.x + self.point2.x + self.point3.x) / 3
         center_y = (self.point1.y + self.point2.y + self.point3.y) / 3
         self.center = Point(center_x, center_y, line_color)
-        self.line1, self.line2, self.line3 = self.create_lines_from_points()
+        self.lines = self.create_lines_from_points()
 
-    def create_lines_from_points(self) -> tuple[Line, Line, Line]:
+    def create_lines_from_points(self) -> List[Line]:
         """
         Create lines from the triangle's corner points.
 
@@ -40,7 +42,7 @@ class Triangle(Shape, TransformShape):
         line1 = Line(self.point1, self.point2, self.line_color)
         line2 = Line(self.point2, self.point3, self.line_color)
         line3 = Line(self.point3, self.point1, self.line_color)
-        return line1, line2, line3
+        return [line1, line2, line3]
 
     def draw(self, image: ndarray) -> ndarray:
         """
@@ -49,9 +51,8 @@ class Triangle(Shape, TransformShape):
         :param image: The image on which to draw the triangle.
         :return: The image with the triangle drawn on it.
         """
-        self.line1.draw(image)
-        self.line2.draw(image)
-        self.line3.draw(image)
+        for line in self.lines:
+            line.draw(image)
         return image
 
     def rotate(self, angle: float) -> None:
@@ -86,7 +87,7 @@ class Triangle(Shape, TransformShape):
         self.center.set_point((self.point1.x + self.point2.x + self.point3.x) / 3,
                               (self.point1.y + self.point2.y + self.point3.y) / 3)
 
-    def get_points_list(self) -> list[Point]:
+    def get_points_list(self) -> List[Point]:
         """
         Get a list of points defining the triangle.
 

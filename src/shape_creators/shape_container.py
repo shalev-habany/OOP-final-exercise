@@ -1,3 +1,5 @@
+from typing import Dict, List
+
 from src.shapes.shape import Shape
 
 
@@ -6,7 +8,7 @@ class ShapeContainer:
     A wrapper class for shapes, including their actions and type.
     """
 
-    def __init__(self, shape_id: str, shape: Shape, actions: list[dict], type: str, draw: bool = True):
+    def __init__(self, shape_id: str, shape: Shape, actions: List[Dict], type: str, draw: bool = True):
         """
         Initialize the ShapeContainer with a shape ID, shape instance, actions, and type.
 
@@ -43,7 +45,7 @@ class ShapeContainer:
                 self.shape.translate(action['x_offset'], action['y_offset'])
 
     @staticmethod
-    def create_final_shape_for_canvas(shape_id: str, shape: Shape, actions: list[dict], type: str, draw: bool = True) -> 'ShapeContainer':
+    def create_final_shape_for_canvas(shape_id: str, shape: Shape, actions: List[Dict], type: str, draw: bool = True) -> 'ShapeContainer':
         """
         Create a ShapeContainer, apply actions to the shape, and return the container.
 
