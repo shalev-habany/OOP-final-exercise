@@ -7,7 +7,7 @@ from src.shapes.shape import Shape
 from src.transform_shapes.transform_shapes import TransformShape
 
 
-class CompositeShape(Shape, TransformShape):
+class CompositeShape(Shape):
     """
     A class representing a composite shape, which is a collection of multiple shapes.
     """
@@ -64,7 +64,7 @@ class CompositeShape(Shape, TransformShape):
 
         :param angle: The angle to rotate the composite shape by.
         """
-        super().rotate_shape(angle, self.center, self.points_list)
+        TransformShape.rotate_shape(angle, self.center, self.points_list)
 
     def scale(self, factor: float) -> None:
         """
@@ -72,7 +72,7 @@ class CompositeShape(Shape, TransformShape):
 
         :param factor: The factor to scale the composite shape by.
         """
-        super().scale_shape(factor, self.center, self.points_list)
+        TransformShape.scale_shape(factor, self.center, self.points_list)
 
     def draw(self, image: ndarray) -> ndarray:
         """

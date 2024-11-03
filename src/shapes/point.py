@@ -84,3 +84,6 @@ class Point(Shape):
         :return: The point itself.
         """
         return self
+
+    def update_center(self):
+        pass

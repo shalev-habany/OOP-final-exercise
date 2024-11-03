@@ -10,7 +10,7 @@ from src.shapes.shape import Shape
 from src.transform_shapes.transform_shapes import TransformShape
 
 
-class Rectangle(Shape, TransformShape):
+class Rectangle(Shape):
     """
     A class representing a rectangle shape.
     """
@@ -66,7 +66,7 @@ class Rectangle(Shape, TransformShape):
         :param x_offset: The offset in the x direction.
         :param y_offset: The offset in the y direction.
         """
-        super().translate_shape(x_offset, y_offset,
+        TransformShape.translate_shape(self, x_offset, y_offset,
                                 [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
 
     def rotate(self, angle: float) -> None:
@@ -75,7 +75,7 @@ class Rectangle(Shape, TransformShape):
 
         :param angle: The angle to rotate the rectangle by.
         """
-        super().rotate_shape(angle, self.center, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
+        TransformShape.rotate_shape(angle, self.center, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
 
     def scale(self, factor: float) -> None:
         """
@@ -83,7 +83,7 @@ class Rectangle(Shape, TransformShape):
 
         :param factor: The factor to scale the rectangle by.
         """
-        super().scale_shape(factor, self.center, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
+        TransformShape.scale_shape(factor, self.center, [self.top_left, self.top_right, self.bottom_left, self.bottom_right])
         self.update_height_and_width()
 
     def update_center(self) -> None:

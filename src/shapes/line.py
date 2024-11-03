@@ -9,7 +9,7 @@ from src.shapes.shape import Shape
 from src.transform_shapes.transform_shapes import TransformShape
 
 
-class Line(Shape, TransformShape):
+class Line(Shape):
     """
     A class representing a line shape.
     """
@@ -46,7 +46,7 @@ class Line(Shape, TransformShape):
 
         :param angle: The angle to rotate the line by.
         """
-        super().rotate_shape(angle, self.center, [self.point1, self.point2])
+        TransformShape.rotate_shape(angle, self.center, [self.point1, self.point2])
 
     def translate(self, x_offset: float, y_offset: float) -> None:
         """
@@ -55,7 +55,7 @@ class Line(Shape, TransformShape):
         :param x_offset: The offset in the x direction.
         :param y_offset: The offset in the y direction.
         """
-        super().translate_shape(x_offset, y_offset, [self.point1, self.point2])
+        TransformShape.translate_shape(self, x_offset, y_offset, [self.point1, self.point2])
 
     def scale(self, factor: float) -> None:
         """
@@ -63,7 +63,7 @@ class Line(Shape, TransformShape):
 
         :param factor: The factor to scale the line by.
         """
-        super().scale_shape(factor, self.center, [self.point1, self.point2])
+        TransformShape.scale_shape(factor, self.center, [self.point1, self.point2])
 
     def update_center(self) -> None:
         """

@@ -28,3 +28,7 @@ class Shape(ABC):
     @abstractmethod
     def get_center(self):
         pass
+
+    @abstractmethod
+    def update_center(self):
+        pass

@@ -4,7 +4,7 @@ from src.canvas import Canvas
 from src.shapes.line import Line
 from src.shapes.point import Point
 
-class LineTests(unittest.TestCase):
+class TestLine(unittest.TestCase):
     def setUp(self):
         self.start = Point(1.0, 1.0, (255, 0, 0))
         self.end = Point(4.0, 4.0, (255, 0, 0))

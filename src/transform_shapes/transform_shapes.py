@@ -3,8 +3,10 @@ from typing import List
 
 import numpy as np
 import cv2
+from aiohttp.web_routedef import static
 
 from src.shapes.point import Point
+from src.shapes.shape import Shape
 
 
 class TransformShape(ABC):
@@ -12,7 +14,8 @@ class TransformShape(ABC):
     An abstract base class for shapes that can be transformed.
     """
 
-    def apply_operation_matrix(self, matrix: np.ndarray, points: List[Point]) -> None:
+    @staticmethod
+    def apply_operation_matrix(matrix: np.ndarray, points: List[Point]) -> None:
         """
         Apply a transformation matrix to a List of points.
 
@@ -23,19 +26,22 @@ class TransformShape(ABC):
             scaled_point = matrix @ np.array([[point.x], [point.y], [1]])
             point.set_point(scaled_point[0, 0], scaled_point[1, 0])
 
-    def translate_shape(self, x_offset: float, y_offset: float, points: List[Point]) -> None:
+    @staticmethod
+    def translate_shape(shape: Shape, x_offset: float, y_offset: float, points: List[Point]) -> None:
         """
         Translate a shape by the given offsets.
 
+        :param shape: The shape to translate.
         :param x_offset: The offset in the x direction.
         :param y_offset: The offset in the y direction.
         :param points: The List of points defining the shape.
         """
         for point in points:
             point.translate(x_offset, y_offset)
-        self.update_center()
+        shape.update_center()
 
-    def rotate_shape(self, angle: float, center: Point, points: List[Point]) -> None:
+    @staticmethod
+    def rotate_shape(angle: float, center: Point, points: List[Point]) -> None:
         """
         Rotate a shape by the given angle around its center.
 
@@ -44,9 +50,10 @@ class TransformShape(ABC):
         :param points: The List of points defining the shape.
         """
         rotation_matrix = cv2.getRotationMatrix2D((center.x, center.y), angle, 1)
-        self.apply_operation_matrix(rotation_matrix, points)
+        TransformShape.apply_operation_matrix(rotation_matrix, points)
 
-    def scale_shape(self, factor: float, center: Point, points: List[Point]) -> None:
+    @staticmethod
+    def scale_shape(factor: float, center: Point, points: List[Point]) -> None:
         """
         Scale a shape by the given factor around its center.
 
@@ -55,11 +62,4 @@ class TransformShape(ABC):
         :param points: The List of points defining the shape.
         """
         scale_matrix = cv2.getRotationMatrix2D((center.x, center.y), 0, factor)
-        self.apply_operation_matrix(scale_matrix, points)
-
-    @abstractmethod
-    def update_center(self):
-        """
-        Update the center point of the shape.
-        """
-        pass
+        TransformShape.apply_operation_matrix(scale_matrix, points)

@@ -1,14 +1,13 @@
 import unittest
 
 import numpy as np
-from twisted.conch.insults.window import rectangle
 
 from src.canvas import Canvas
 from src.shapes.point import Point
 from src.shapes.rectangle import Rectangle
 
 
-class RectangleTests(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
     def setUp(self):
         self.center = Point(5.0, 5.0, (0, 0, 255))
         self.height = 2.0

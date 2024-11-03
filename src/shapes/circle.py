@@ -74,3 +74,6 @@ class Circle(Shape):
         :return: A list containing the center point of the circle.
         """
         return [self.center]
+
+    def update_center(self):
+        pass

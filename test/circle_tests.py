@@ -5,7 +5,7 @@ from src.shapes.circle import Circle
 from src.shapes.point import Point
 
 
-class CirclesTest(unittest.TestCase):
+class TestCircle(unittest.TestCase):
     def setUp(self):
         self.center = Point(5.0, 5.0, (0, 255, 0))
         self.circle = Circle(3.0, self.center, (0, 255, 0))

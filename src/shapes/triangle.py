@@ -61,7 +61,7 @@ class Triangle(Shape, TransformShape):
 
         :param angle: The angle to rotate the triangle by.
         """
-        super().rotate_shape(angle, self.center, [self.point1, self.point2, self.point3])
+        TransformShape.rotate_shape(angle, self.center, [self.point1, self.point2, self.point3])
 
     def scale(self, factor: float) -> None:
         """
@@ -69,7 +69,7 @@ class Triangle(Shape, TransformShape):
 
         :param factor: The factor to scale the triangle by.
         """
-        super().scale_shape(factor, self.center, [self.point1, self.point2, self.point3])
+        TransformShape.scale_shape(factor, self.center, [self.point1, self.point2, self.point3])
 
     def translate(self, x_offset: float, y_offset: float) -> None:
         """
@@ -78,7 +78,7 @@ class Triangle(Shape, TransformShape):
         :param x_offset: The offset in the x direction.
         :param y_offset: The offset in the y direction.
         """
-        super().translate_shape(x_offset, y_offset, [self.point1, self.point2, self.point3])
+        TransformShape.translate_shape(self, x_offset, y_offset, [self.point1, self.point2, self.point3])
 
     def update_center(self) -> None:
         """
