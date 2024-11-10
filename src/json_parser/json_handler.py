@@ -18,15 +18,17 @@ class JsonHandler:
         :param json_path: Path to the JSON file.
         """
         self.json_path = json_path
-        self.json_data = self.read_json()
+        self.json_data = JsonHandler.read_json(json_path)
 
-    def read_json(self) -> Dict:
+    @staticmethod
+    def read_json(json_path: str) -> Dict:
         """
         Read the JSON file and return its content as a dictionary.
 
+        :param json_path: Path to the JSON file.
         :return: Dictionary containing the JSON data.
         """
-        with open(self.json_path, 'r') as json_file:
+        with open(json_path, 'r') as json_file:
             return json.load(json_file)
 
     def get_shapes(self) -> List:
